@@ -1,0 +1,15 @@
+{
+  "old_tables": {
+    "A": {"routes": {"10.1.0.0/16": "ISP1", "0.0.0.0/0": "B"}},
+    "B": {"routes": {"0.0.0.0/0": "WRONG_EXIT"}}
+  },
+  "new_tables": {
+    "A": {"routes": {"10.1.0.0/16": "B", "0.0.0.0/0": "B"}},
+    "B": {"routes": {"10.1.0.0/16": "ISP1", "0.0.0.0/0": "WRONG_EXIT"}}
+  },
+  "topology": {"A": ["B"], "B": ["A"]},
+  "requirements": [
+    {"entry_router": "A", "dst_prefix": "10.1.0.0/16", "exit_node": "ISP1"}
+  ],
+  "max_batch_size": 3
+}

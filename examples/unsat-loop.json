@@ -1,0 +1,14 @@
+{
+  "old_tables": {
+    "A": {"routes": {"10.0.0.0/16": "ISP1"}},
+    "B": {"routes": {"10.0.0.0/16": "ISP1"}}
+  },
+  "new_tables": {
+    "A": {"routes": {"10.0.0.0/16": "B"}},
+    "B": {"routes": {"10.0.0.0/16": "A"}}
+  },
+  "topology": {"A": ["B"], "B": ["A"]},
+  "requirements": [
+    {"entry_router": "A", "dst_prefix": "10.0.0.0/16", "exit_node": "ISP1"}
+  ]
+}
